@@ -132,25 +132,55 @@ function bindActions() {
         .getElementById("add-field")
         .addEventListener("click", () => {
 
-            addField();
 
-            renderComponents();
+        const embed = getEmbed();
 
-            renderPreview();
 
-        });
+        if(embed.fields.length >= 25){
+
+            alert(
+                "Discord allows maximum 25 fields."
+            );
+
+            return;
+
+        }
+
+
+        addField();
+
+        renderComponents();
+
+        renderPreview();
+    });
 
     document
         .getElementById("add-button")
         .addEventListener("click", () => {
 
-            addButton();
 
-            renderComponents();
+        const embed = getEmbed();
 
-            renderPreview();
 
-        });
+        if(embed.buttons.length >= 25){
+
+            alert(
+                "Discord allows maximum 25 buttons."
+            );
+
+            return;
+
+        }
+
+
+        addButton();
+
+        renderComponents();
+
+        renderPreview();
+
+
+    });
 
     document
         .getElementById("generate")

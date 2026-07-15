@@ -73,7 +73,74 @@ async function apiRequest(endpoint, options = {}) {
 =========================================
 */
 
+function prepareEmbedPayload(){
+
+    const state = getState();
+
+    const embed = state.embeds[0];
+
+
+    return {
+
+        content: state.content,
+
+        embeds:[
+            {
+
+                title: embed.title,
+
+                description: embed.description,
+
+                color: embed.color,
+
+                author: embed.author,
+
+                footer: embed.footer,
+
+                thumbnail: embed.thumbnail,
+
+                image: embed.image,
+
+                fields: embed.fields
+
+            }
+        ],
+
+
+        components:
+
+            embed.buttons.map(button => ({
+
+                label: button.label,
+
+                emoji: button.emoji,
+
+                style: button.style,
+
+                disabled: button.disabled,
+
+                action: button.action
+
+            }))
+
+    };
+
+}
+
 async function generateEmbedCode() {
+
+    const payload = prepareEmbedPayload();
+
+    const validation = validateEmbed(payload);
+
+
+    if(!validation.valid){
+
+        alert(validation.message);
+
+        return;
+
+    }
 
     const button = document.getElementById("generate");
 
@@ -94,9 +161,7 @@ async function generateEmbedCode() {
                 method: "POST",
 
                 body: JSON.stringify(
-
-                    getState()
-
+                    prepareEmbedPayload()
                 )
 
             }
@@ -245,21 +310,15 @@ async function showGeneratedCode(data) {
 
     }
 
-    alert(
+alert(
+`
+Embed code generated successfully.
 
-`Embed generated successfully.
+Code: ${data.code}
 
-Code
-
-${data.code}
-
-${data.reused
-? "Existing code reused."
-: "New code generated."}
-
-The code has been copied to the clipboard.`
-
-    );
+This code will expire in one hour.
+`
+);
 
 }
 

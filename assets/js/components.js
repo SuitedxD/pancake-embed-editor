@@ -250,6 +250,7 @@ function createButton(button, index) {
         <input
             class="button-label"
             type="text"
+            maxlength="80"
             value="${escapeHTML(button.label)}"
         >
 
@@ -258,6 +259,7 @@ function createButton(button, index) {
         <input
             class="button-emoji"
             type="text"
+            maxlength="32"
             value="${escapeHTML(button.emoji)}"
         >
 
