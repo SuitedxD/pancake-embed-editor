@@ -87,17 +87,7 @@ async function authenticate() {
 
     }
 
-    const user = await fetchCurrentUser();
-
-    if (!user) {
-
-        logout();
-
-        return;
-
-    }
-
-    showEditor(user);
+    showEditor();
 
 }
 
