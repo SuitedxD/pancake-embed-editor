@@ -1,0 +1,300 @@
+/* ========================= */
+/*        COMPONENTS         */
+/* ========================= */
+
+/* Dynamic containers */
+
+#fields-container,
+#buttons-container {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+}
+
+/* ========================= */
+/*          FIELD            */
+/* ========================= */
+
+.field {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    padding: 16px;
+
+    background: var(--background-tertiary);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+}
+
+.field-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.field-title {
+
+    font-size: .95rem;
+
+    font-weight: 600;
+
+}
+
+.field textarea {
+
+    min-height: 80px;
+
+}
+
+.field-inline {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+.field-inline label {
+
+    margin: 0;
+
+}
+
+.field-inline input[type="checkbox"] {
+
+    width: 18px;
+
+    height: 18px;
+
+    accent-color: var(--primary);
+
+}
+
+/* ========================= */
+/*         COMPONENT         */
+/* ========================= */
+
+.component {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    padding: 16px;
+
+    background: var(--background-tertiary);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+}
+
+.component-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.component-title {
+
+    font-weight: 600;
+
+}
+
+/* ========================= */
+/*      COMPONENT ROW        */
+/* ========================= */
+
+.component-row {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+.component-row>* {
+
+    flex: 1;
+
+}
+
+/* ========================= */
+/*      REMOVE BUTTON        */
+/* ========================= */
+
+.remove {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 8px;
+
+    background: var(--danger);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 18px;
+
+    padding: 0;
+
+}
+
+.remove:hover {
+
+    filter: brightness(.9);
+
+}
+
+/* ========================= */
+/*        ADD BUTTONS        */
+/* ========================= */
+
+#add-field,
+#add-button {
+
+    width: 100%;
+
+    margin-top: 12px;
+
+}
+
+/* ========================= */
+/*      URL INPUT STYLE      */
+/* ========================= */
+
+input[type="url"] {
+
+    font-family: monospace;
+
+}
+
+/* ========================= */
+/*      COLOR PICKER         */
+/* ========================= */
+
+input[type="color"] {
+
+    appearance: none;
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+input[type="color"]::-webkit-color-swatch {
+
+    border: none;
+
+    border-radius: 8px;
+
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+
+    padding: 0;
+
+}
+
+/* ========================= */
+/*        SELECTS            */
+/* ========================= */
+
+select {
+
+    cursor: pointer;
+
+}
+
+/* ========================= */
+/*      EMPTY MESSAGE        */
+/* ========================= */
+
+.empty-state {
+
+    color: var(--text-muted);
+
+    text-align: center;
+
+    padding: 30px;
+
+    border: 2px dashed var(--border);
+
+    border-radius: var(--radius);
+
+    font-size: .9rem;
+
+}
+
+/* ========================= */
+/*      SMALL HELP TEXT      */
+/* ========================= */
+
+.small {
+
+    font-size: .8rem;
+
+    color: var(--text-muted);
+
+}
+
+/* ========================= */
+/*        ANIMATIONS         */
+/* ========================= */
+
+.field,
+.component {
+
+    animation: fadeIn .2s ease;
+
+}
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}

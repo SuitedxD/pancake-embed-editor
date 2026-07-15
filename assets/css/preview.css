@@ -1,0 +1,325 @@
+/* ========================= */
+/*         PREVIEW           */
+/* ========================= */
+
+#preview {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+#preview h2 {
+
+    font-size: 1.4rem;
+
+}
+
+/* ========================= */
+/*      DISCORD WINDOW       */
+/* ========================= */
+
+#discord-preview {
+
+    background: #313338;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--border);
+
+    padding: 24px;
+
+    min-height: 700px;
+
+    box-shadow: var(--shadow);
+
+}
+
+/* ========================= */
+/*      MESSAGE CONTENT      */
+/* ========================= */
+
+.discord-content {
+
+    color: #dbdee1;
+
+    margin-bottom: 18px;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+
+    line-height: 1.45;
+
+}
+
+/* ========================= */
+/*          EMBED            */
+/* ========================= */
+
+.discord-embed {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    background: #2b2d31;
+
+    border-left: 4px solid #5865F2;
+
+    border-radius: 6px;
+
+    padding: 16px;
+
+}
+
+/* ========================= */
+/*          AUTHOR           */
+/* ========================= */
+
+.embed-author {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 12px;
+
+}
+
+.embed-author img {
+
+    width: 24px;
+
+    height: 24px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+}
+
+.embed-author span {
+
+    font-size: .9rem;
+
+    font-weight: 600;
+
+}
+
+/* ========================= */
+/*           TITLE           */
+/* ========================= */
+
+.embed-title {
+
+    font-size: 1.05rem;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+}
+
+/* ========================= */
+/*        DESCRIPTION        */
+/* ========================= */
+
+.embed-description {
+
+    white-space: pre-wrap;
+
+    line-height: 1.45;
+
+    margin-bottom: 16px;
+
+    word-break: break-word;
+
+}
+
+/* ========================= */
+/*          FIELDS           */
+/* ========================= */
+
+.embed-fields {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 16px;
+
+}
+
+.embed-field {
+
+    min-width: 0;
+
+}
+
+.embed-field-name {
+
+    font-weight: bold;
+
+    margin-bottom: 4px;
+
+}
+
+.embed-field-value {
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+
+}
+
+/* ========================= */
+/*        THUMBNAIL          */
+/* ========================= */
+
+.embed-thumbnail {
+
+    float: right;
+
+    width: 80px;
+
+    margin-left: 16px;
+
+    border-radius: 8px;
+
+}
+
+/* ========================= */
+/*          IMAGE            */
+/* ========================= */
+
+.embed-image {
+
+    width: 100%;
+
+    margin-top: 16px;
+
+    border-radius: 8px;
+
+}
+
+/* ========================= */
+/*          FOOTER           */
+/* ========================= */
+
+.embed-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 18px;
+
+    color: var(--text-muted);
+
+    font-size: .8rem;
+
+}
+
+.embed-footer img {
+
+    width: 20px;
+
+    height: 20px;
+
+    border-radius: 50%;
+
+}
+
+/* ========================= */
+/*         BUTTONS           */
+/* ========================= */
+
+.embed-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 18px;
+
+}
+
+.discord-button {
+
+    background: #4e5058;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 4px;
+
+    padding: 8px 14px;
+
+    font-size: .85rem;
+
+    cursor: default;
+
+}
+
+.discord-button.primary {
+
+    background: #5865F2;
+
+}
+
+.discord-button.success {
+
+    background: #3ba55c;
+
+}
+
+.discord-button.danger {
+
+    background: #ed4245;
+
+}
+
+.discord-button.secondary {
+
+    background: #4e5058;
+
+}
+
+.discord-button.link {
+
+    background: #5865F2;
+
+}
+
+/* ========================= */
+/*        RESPONSIVE         */
+/* ========================= */
+
+@media (max-width: 900px) {
+
+    .embed-fields {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .discord-embed {
+
+        max-width: 100%;
+
+    }
+
+}

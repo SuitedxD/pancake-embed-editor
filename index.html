@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Pancake Embed Editor</title>
+
+    <!-- Styles -->
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/editor.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/preview.css">
+
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!--          LOGIN SCREEN         -->
+    <!-- ============================= -->
+
+    <div id="login-screen">
+
+        <div class="login-card">
+
+            <h1>Pancake Embed Editor</h1>
+
+            <p>
+
+                Sign in with Discord to access the editor.
+
+            </p>
+
+            <button
+                id="discord-login"
+                type="button">
+
+                Login with Discord
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ============================= -->
+    <!--          EDITOR APP           -->
+    <!-- ============================= -->
+
+    <div
+        id="editor-app"
+        hidden>
+
+        <header>
+
+            <div>
+
+                <h1>Pancake Embed Editor</h1>
+
+                <p>Create Discord embeds visually.</p>
+
+            </div>
+
+            <div id="user-panel">
+
+                <span id="username"></span>
+
+                <button
+                    id="logout"
+                    type="button">
+
+                    Logout
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <main>
+
+            <!-- ============================= -->
+            <!--            EDITOR             -->
+            <!-- ============================= -->
+
+            <section id="editor">
+
+                <div class="editor-actions">
+
+                    <button
+                        id="import-embed"
+                        type="button">
+
+                        Import
+
+                    </button>
+
+                    <button
+                        id="export-embed"
+                        type="button">
+
+                        Export
+
+                    </button>
+
+                    <button
+                        id="generate"
+                        type="button">
+
+                        Generate Code
+
+                    </button>
+
+                    <input
+                        id="import-file"
+                        type="file"
+                        accept=".pancakeembed"
+                        hidden>
+
+                </div>
+
+                <!-- Message -->
+
+                <div class="card">
+
+                    <h2>Message</h2>
+
+                    <label for="content">Content</label>
+
+                    <textarea
+                        id="content"
+                        rows="4"
+                        maxlength="2000"
+                        placeholder="Message content..."></textarea>
+
+                </div>
+
+                <!-- Embed -->
+
+                <div class="card">
+
+                    <h2>Embed</h2>
+
+                    <label for="title">Title</label>
+
+                    <input
+                        id="title"
+                        type="text"
+                        maxlength="256">
+
+                    <label for="description">Description</label>
+
+                    <textarea
+                        id="description"
+                        rows="8"
+                        maxlength="4096"></textarea>
+
+                    <label for="color">Color</label>
+
+                    <input
+                        id="color"
+                        type="color"
+                        value="#5865F2">
+
+                </div>
+
+                <!-- Author -->
+
+                <div class="card">
+
+                    <h2>Author</h2>
+
+                    <label for="author-name">Name</label>
+
+                    <input
+                        id="author-name"
+                        type="text">
+
+                    <label for="author-icon">Icon URL</label>
+
+                    <input
+                        id="author-icon"
+                        type="url">
+
+                </div>
+
+                <!-- Footer -->
+
+                <div class="card">
+
+                    <h2>Footer</h2>
+
+                    <label for="footer-text">Text</label>
+
+                    <input
+                        id="footer-text"
+                        type="text">
+
+                    <label for="footer-icon">Icon URL</label>
+
+                    <input
+                        id="footer-icon"
+                        type="url">
+
+                </div>
+
+                <!-- Images -->
+
+                <div class="card">
+
+                    <h2>Images</h2>
+
+                    <label for="thumbnail">Thumbnail URL</label>
+
+                    <input
+                        id="thumbnail"
+                        type="url">
+
+                    <label for="image">Image URL</label>
+
+                    <input
+                        id="image"
+                        type="url">
+
+                </div>
+
+                <!-- Fields -->
+
+                <div class="card">
+
+                    <h2>Fields</h2>
+
+                    <div id="fields-container"></div>
+
+                    <button
+                        id="add-field"
+                        type="button">
+
+                        Add Field
+
+                    </button>
+
+                </div>
+
+                <!-- Buttons -->
+
+                <div class="card">
+
+                    <h2>Buttons</h2>
+
+                    <div id="buttons-container"></div>
+
+                    <button
+                        id="add-button"
+                        type="button">
+
+                        Add Button
+
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- ============================= -->
+            <!--            PREVIEW            -->
+            <!-- ============================= -->
+
+            <section id="preview">
+
+                <h2>Preview</h2>
+
+                <div id="discord-preview"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Scripts -->
+
+    <script src="assets/js/state.js"></script>
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/preview.js"></script>
+    <script src="assets/js/editor.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/fileManager.js"></script>
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
