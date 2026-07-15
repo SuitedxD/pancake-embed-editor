@@ -312,11 +312,13 @@ async function showGeneratedCode(data) {
 
 alert(
 `
-Embed code generated successfully.
+Embed generated successfully and coppied to the clipboard.
 
-Code: ${data.code}
+Embed Code: ${data.code}
 
-This code will expire in one hour.
+Use it on your server with /web-embed-fire ${data.code}
+
+NOTE: This code will expire in one hour.
 `
 );
 
