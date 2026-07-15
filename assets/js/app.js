@@ -22,6 +22,28 @@ function registerEvents() {
     document
         .getElementById("logout")
         .addEventListener("click", logout);
+    document
+        .getElementById("join-discord")
+        .addEventListener("click", () => {
+
+            window.open(
+                "DISCORDINVIE",
+                "_blank"
+            );
+
+        });
+
+
+    document
+        .getElementById("see-guide")
+        .addEventListener("click", () => {
+
+            window.open(
+                "GUIDELIK",
+                "_blank"
+            );
+
+        });
 
 }
 

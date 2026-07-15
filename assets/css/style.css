@@ -70,7 +70,15 @@ header {
 
     border-bottom: 1px solid var(--border);
 
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
 }
+
+
 
 header h1 {
 
@@ -115,6 +123,16 @@ main {
     position: sticky;
 
     top: 30px;
+
+}
+
+#header-buttons {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
 
 }
 
