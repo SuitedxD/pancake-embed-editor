@@ -107,7 +107,7 @@ function prepareEmbedPayload(){
         ],
 
 
-        components:
+        buttons:
 
             embed.buttons.map(button => ({
 
