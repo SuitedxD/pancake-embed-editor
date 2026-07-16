@@ -202,17 +202,8 @@ function createFields(card, embed) {
 
         element.className = "embed-field";
 
-        if (field.inline) {
-
-            element.style.display = "inline-block";
-            element.style.width = "30%";
-            element.style.verticalAlign = "top";
-
-        } else {
-
-            element.style.display = "block";
-            element.style.width = "100%";
-
+        if (!field.inline) {
+            element.style.gridColumn = "1 / -1";
         }
 
         if (field.name) {
