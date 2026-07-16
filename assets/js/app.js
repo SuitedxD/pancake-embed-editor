@@ -27,13 +27,11 @@ function registerEvents() {
         .addEventListener("click", () => {
 
             window.open(
-                "DISCORDINVIE",
+                "https://discord.gg/SgXdeVaxuh",
                 "_blank"
             );
 
         });
-
-
     document
         .getElementById("see-guide")
         .addEventListener("click", () => {

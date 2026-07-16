@@ -82,7 +82,7 @@ function prepareEmbedPayload(){
 
     return {
 
-        content: state.content,
+        content: state.content?.trim() || undefined,
 
         embeds:[
             {
