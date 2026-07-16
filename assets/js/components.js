@@ -282,7 +282,7 @@ function createButton(button, index) {
             <option value="url">Open URL</option>
             <option value="role">Assign Role</option>
             <option value="copy">Copy Text</option>
-            <option value="message">Send Message</option>
+            <option value="reply">Send Message</option>
             <option value="custom">Custom ID</option>
 
         </select>
