@@ -366,11 +366,11 @@ async function showGeneratedCode(data){
 Embed Code:
 ${data.code}
 
-Use it with:
+Use it on your server with:
 
 /web-embed-fire ${data.code}
 
-This code will expire in one hour.`
+IMPORTANT NOTE: This code will expire in one hour or if you generate another embed.`
 
     });
 
