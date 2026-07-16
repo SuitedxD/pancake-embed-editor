@@ -288,39 +288,91 @@ async function parseResponse(response) {
 =========================================
 */
 
-async function showGeneratedCode(data) {
+/*
+=========================================
+            MODAL
+=========================================
+*/
 
-    try {
+function openModal({
 
-        await navigator.clipboard.writeText(
+    title,
 
-            data.code
+    message,
 
-        );
+    copyText = ""
 
-    }
+}){
 
-    catch {
+    const overlay =
+        document.getElementById("modal-overlay");
 
-        console.warn(
+    document.getElementById("modal-title").textContent =
+        title;
 
-            "Clipboard unavailable."
+    document.getElementById("modal-message").textContent =
+        message;
 
-        );
+    const copy =
+        document.getElementById("modal-copy");
 
-    }
+    copy.style.display =
+        copyText ? "inline-block" : "none";
 
-alert(
-`
-Embed generated successfully and coppied to the clipboard.
+    copy.onclick = async () => {
 
-Embed Code: ${data.code}
+        try{
 
-Use it on your server with /web-embed-fire ${data.code}
+            await navigator.clipboard.writeText(copyText);
 
-NOTE: This code will expire in one hour.
-`
-);
+            copy.textContent = "Copied!";
+
+        }
+
+        catch{}
+
+    };
+
+    document.getElementById("modal-accept").onclick =
+        closeModal;
+
+    overlay.classList.remove("hidden");
+
+}
+
+function closeModal(){
+
+    document
+        .getElementById("modal-overlay")
+        .classList.add("hidden");
+
+    document
+        .getElementById("modal-copy")
+        .textContent = "Copy Code";
+
+}
+
+async function showGeneratedCode(data){
+
+    openModal({
+
+        title:"Embed Generated!",
+
+        copyText:data.code,
+
+        message:
+`Your Web Embed has been generated successfully.
+
+Embed Code:
+${data.code}
+
+Use it with:
+
+/web-embed-fire ${data.code}
+
+This code will expire in one hour.`
+
+    });
 
 }
 
