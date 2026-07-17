@@ -37,7 +37,7 @@ function registerEvents() {
         .addEventListener("click", () => {
 
             window.open(
-                "GUIDELIK",
+                "https://github.com/SuitedxD/pancake-embed-editor/tree/main#getting-started",
                 "_blank"
             );
 

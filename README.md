@@ -4,7 +4,7 @@
 
 Welcome! The **Pancake Embed Editor** is a simple web application that allows you to create beautiful Discord embeds without writing JSON or touching code.
 
-Once your embed is ready, the editor generates a unique code that can be used with the **Web Embed** plugin for Pancake (For example: `/web-embed-fire code:ABC123DE`), allowing you to send your embed directly from your Discord server.
+Once your embed is ready, the editor generates a unique code that can be used with the **Web Embed** plugin for Pancake (For example: `/web-embed-fire code:AB12CD34`), allowing you to send your embed directly from your Discord server.
 
 Let's see how everything works!
 
