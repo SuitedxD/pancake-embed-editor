@@ -368,7 +368,7 @@ ${data.code}
 
 Use it on your server with:
 
-/web-embed-fire ${data.code}
+/web-embed-fire code:${data.code}
 
 IMPORTANT NOTE: This code will expire in one hour or if you generate another embed.`
 
