@@ -215,8 +215,8 @@ Feel free to experiment with different layouts, colors and buttons until everyth
 
 # See Also
 
-- [Pancake Bot Repository](https://github.com/SuitedxD/Pancake)
 - [Pancake Embed Editor](https://suitedxd.github.io/pancake-embed-editor/)
+- [Pancake Bot Repository](https://github.com/SuitedxD/Pancake)
 - [Pancake Plugin List](https://github.com/SuitedxD/Pancake/blob/main/docs/plugins-list.md)
 - [Discord Server](https://discord.gg/SgXdeVaxuh)
 
