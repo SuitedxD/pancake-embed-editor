@@ -60,7 +60,6 @@ function validateEmbed(){
 
     }
 
-
     if(
 
         (!state.content || state.content.trim() === "") &&
@@ -73,9 +72,7 @@ function validateEmbed(){
 
         (!embed.image?.url || embed.image.url.trim() === "") &&
 
-        (!embed.thumbnail?.url || embed.thumbnail.url.trim() === "") &&
-
-        (!embed.buttons || embed.buttons.length === 0)
+        (!embed.thumbnail?.url || embed.thumbnail.url.trim() === "")
 
     ){
 
@@ -85,6 +82,27 @@ function validateEmbed(){
 
     }
 
+    const hasContent =
+        !!state.content?.trim();
+
+    const hasEmbed =
+        !!(
+            embed.title?.trim() ||
+            embed.description?.trim() ||
+            embed.fields?.length ||
+            embed.image?.url ||
+            embed.thumbnail?.url ||
+            embed.author?.name ||
+            embed.footer?.text
+        );
+
+    if (!hasContent && !hasEmbed){
+
+        return error(
+            "Discord requires message content or at least one embed."
+        );
+
+    }
 
     if(
         (state.content?.length || 0) >
