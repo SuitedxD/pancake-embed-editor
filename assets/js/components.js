@@ -236,7 +236,7 @@ function createButton(button, index) {
             <option value="secondary">Secondary</option>
             <option value="success">Success</option>
             <option value="danger">Danger</option>
-
+            <option value="link">Link</option>
         </select>
 
         <label>Action</label>
@@ -296,6 +296,11 @@ function createButton(button, index) {
     element.querySelector(".button-style").value = button.style;
     element.querySelector(".button-action").value = button.action.type;
 
+    const style = element.querySelector(".button-style");
+
+    style.querySelector('option[value="link"]').hidden = true;
+    style.querySelector('option[value="link"]').disabled = true;
+
     bindButtonEvents(element, index);
 
     updateButtonActionUI(element);
@@ -323,6 +328,9 @@ function updateButtonActionUI(element){
     const style =
         element.querySelector(".button-style");
 
+    const linkOption =
+        style.querySelector('option[value="link"]');
+
     switch(action){
 
         case "url":
@@ -335,8 +343,10 @@ function updateButtonActionUI(element){
             help.textContent =
                 "Opens a website when clicked.";
 
-            style.value = "link";
+            linkOption.hidden = false;
+            linkOption.disabled = false;
 
+            style.value = "link";
             style.disabled = true;
 
         break;
@@ -350,6 +360,13 @@ function updateButtonActionUI(element){
 
             help.textContent =
                 "Gives this role to the user.";
+
+            if (style.value === "link") {
+                style.value = "secondary";
+            }
+
+            linkOption.hidden = true;
+            linkOption.disabled = true;
 
             style.disabled = false;
 
@@ -365,6 +382,13 @@ function updateButtonActionUI(element){
             help.textContent =
                 "Removes this role from the user.";
 
+            if (style.value === "link") {
+                style.value = "secondary";
+            }
+
+            linkOption.hidden = true;
+            linkOption.disabled = true;
+
             style.disabled = false;
 
         break;
@@ -378,6 +402,13 @@ function updateButtonActionUI(element){
 
             help.textContent =
                 "Adds the role if missing, otherwise removes it.";
+
+            if (style.value === "link") {
+                style.value = "secondary";
+            }
+
+            linkOption.hidden = true;
+            linkOption.disabled = true;
 
             style.disabled = false;
 
@@ -393,6 +424,13 @@ function updateButtonActionUI(element){
             help.textContent =
                 "Sends an ephemeral message to the user.";
 
+            if (style.value === "link") {
+                style.value = "secondary";
+            }
+
+            linkOption.hidden = true;
+            linkOption.disabled = true;
+
             style.disabled = false;
 
         break;
@@ -406,6 +444,13 @@ function updateButtonActionUI(element){
 
             help.textContent =
                 "Triggers a custom event from a plugin that requires a specific custom ID.";
+
+            if (style.value === "link") {
+                style.value = "secondary";
+            }
+
+            linkOption.hidden = true;
+            linkOption.disabled = true;
 
             style.disabled = false;
 
