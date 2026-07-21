@@ -1,17 +1,6 @@
-/*
-=========================================
-        Pancake Embed Editor
-              Preview
-=========================================
-*/
+// preview.js
 
 const preview = document.getElementById("discord-preview");
-
-/*
-=========================================
-            MAIN RENDER
-=========================================
-*/
 
 function renderPreview() {
 
@@ -44,12 +33,6 @@ function renderPreview() {
 
 }
 
-/*
-=========================================
-            CREATE EMBED
-=========================================
-*/
-
 function createEmbed(embed) {
 
     const card = document.createElement("div");
@@ -71,12 +54,6 @@ function createEmbed(embed) {
 
 }
 
-/*
-=========================================
-            THUMBNAIL
-=========================================
-*/
-
 function createThumbnail(card, embed) {
 
     if (!embed.thumbnail.url) {
@@ -94,12 +71,6 @@ function createThumbnail(card, embed) {
     card.appendChild(image);
 
 }
-
-/*
-=========================================
-            AUTHOR
-=========================================
-*/
 
 function createAuthor(card, embed) {
 
@@ -138,12 +109,6 @@ function createAuthor(card, embed) {
 
 }
 
-/*
-=========================================
-            TITLE
-=========================================
-*/
-
 function createTitle(card, embed) {
 
     if (!embed.title) {
@@ -159,12 +124,6 @@ function createTitle(card, embed) {
 
 }
 
-/*
-=========================================
-        DESCRIPTION
-=========================================
-*/
-
 function createDescription(card, embed) {
 
     if (!embed.description) {
@@ -179,12 +138,6 @@ function createDescription(card, embed) {
     card.appendChild(description);
 
 }
-
-/*
-=========================================
-            FIELDS
-=========================================
-*/
 
 function createFields(card, embed) {
 
@@ -236,12 +189,6 @@ function createFields(card, embed) {
 
 }
 
-/*
-=========================================
-            IMAGE
-=========================================
-*/
-
 function createImage(card, embed) {
 
     if (!embed.image.url) {
@@ -259,12 +206,6 @@ function createImage(card, embed) {
     card.appendChild(image);
 
 }
-
-/*
-=========================================
-            FOOTER
-=========================================
-*/
 
 function createFooter(card, embed) {
 
@@ -303,12 +244,6 @@ function createFooter(card, embed) {
 
 }
 
-/*
-=========================================
-            BUTTONS
-=========================================
-*/
-
 const BUTTON_STYLES = {
 
     primary: "primary",
@@ -322,10 +257,11 @@ const BUTTON_STYLES = {
 const BUTTON_TOOLTIPS = {
 
     url: "Open URL",
-    role: "Assign Role",
-    copy: "Copy Text",
-    message: "Send Message",
-    custom: "Custom ID"
+    assign: "Assign Role",
+    remove: "Remove Role",
+    toggle: "Toggle Role",
+    reply: "Send Message",
+    event: "Custom Event"
 
 };
 
@@ -375,17 +311,17 @@ function createButtons(card, embed) {
 
         element.textContent = label.join(" ");
 
+        const action = button.action || {};
+
         const tooltip =
 
-            BUTTON_TOOLTIPS[button.action.type] ??
-            "";
+            BUTTON_TOOLTIPS[action.type] ??
+            "Unknown Action";
 
         if (tooltip) {
 
-            element.title = button.action.value
-
-                ? `${tooltip}\n${button.action.value}`
-
+            element.title = action.value
+                ? `${tooltip}\n${action.value}`
                 : tooltip;
 
         }
@@ -403,11 +339,5 @@ function createButtons(card, embed) {
     card.appendChild(container);
 
 }
-
-/*
-=========================================
-            REFRESH
-=========================================
-*/
 
 window.renderPreview = renderPreview;

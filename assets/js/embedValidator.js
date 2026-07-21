@@ -1,8 +1,4 @@
-/*
-=========================================
-        Discord Embed Validator
-=========================================
-*/
+// embedValidator.js (front)
 
 const DISCORD_LIMITS = {
 
@@ -29,8 +25,6 @@ const DISCORD_LIMITS = {
     totalEmbed: 6000
 
 };
-
-
 
 function validateURL(value){
 
@@ -67,12 +61,6 @@ function validateEmbed(){
     }
 
 
-    /*
-    =====================
-        EMPTY EMBED
-    =====================
-    */
-
     if(
 
         (!state.content || state.content.trim() === "") &&
@@ -97,12 +85,6 @@ function validateEmbed(){
 
     }
 
-
-    /*
-    =====================
-        CONTENT
-    =====================
-    */
 
     if(
         (state.content?.length || 0) >
@@ -299,6 +281,33 @@ if(
 
         }
 
+        if (
+
+            button.style === "link" &&
+
+            button.action.type !== "url"
+
+        ){
+
+            return error(
+                "Link buttons must use the URL action."
+            );
+
+        }
+
+        if (
+
+            button.style !== "link" &&
+
+            button.action.type === "url"
+
+        ){
+
+            return error(
+                "URL buttons must use the Link style."
+            );
+
+        }
 
         if(button.action?.type === "url"){
 
@@ -322,6 +331,52 @@ if(
 
         }
 
+        if (["assign","remove","toggle"].includes(button.action.type)){
+
+            if(
+
+                !/^\d{17,20}$/.test(button.action.value)
+
+            ){
+
+                return error(
+                    "Role ID is invalid."
+                );
+
+            }
+
+        }
+
+        if (button.action.type === "event"){
+
+            if(
+
+                !button.action.value.trim()
+
+            ){
+
+                return error(
+                    "Event name cannot be empty."
+                );
+
+            }
+
+            if(
+
+                button.action.value.length > 100
+
+            ){
+
+                return error(
+                    "Event name is too long."
+                );
+
+            }
+
+        }
+
+
+        
     }
 
 const total =

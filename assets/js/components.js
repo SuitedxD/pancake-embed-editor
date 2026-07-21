@@ -1,18 +1,7 @@
-/*
-=========================================
-        Pancake Embed Editor
-            Components
-=========================================
-*/
+// components.js
 
 const fieldsContainer = document.getElementById("fields-container");
 const buttonsContainer = document.getElementById("buttons-container");
-
-/*
-=========================================
-            HELPERS
-=========================================
-*/
 
 function escapeHTML(text = "") {
 
@@ -24,24 +13,12 @@ function escapeHTML(text = "") {
 
 }
 
-/*
-=========================================
-        RENDER COMPONENTS
-=========================================
-*/
-
 function renderComponents() {
 
     renderFields();
     renderButtons();
 
 }
-
-/*
-=========================================
-            FIELDS
-=========================================
-*/
 
 function renderFields() {
 
@@ -134,11 +111,6 @@ function createField(field, index) {
 
 }
 
-/*
-=========================================
-        FIELD EVENTS
-=========================================
-*/
 
 function bindFieldEvents(element, index) {
 
@@ -183,13 +155,6 @@ function bindFieldEvents(element, index) {
     });
 
 }
-
-/*
-=========================================
-        BUTTONS
-=========================================
-*/
-
 function renderButtons() {
 
     const embed = getEmbed();
@@ -280,20 +245,40 @@ function createButton(button, index) {
         <select class="button-action">
 
             <option value="url">Open URL</option>
-            <option value="role">Assign Role</option>
-            <option value="copy">Copy Text</option>
-            <option value="reply">Send Message</option>
-            <option value="custom">Custom ID</option>
+
+            <option value="assign">
+                Add Role
+            </option>
+
+            <option value="remove">
+                Remove Role
+            </option>
+
+            <option value="toggle">
+                Toggle Role
+            </option>
+
+            <option value="reply">
+                Send Message
+            </option>
+
+            <option value="event">
+                Custom Event (Advanced)
+            </option>
 
         </select>
 
-        <label>Action Value</label>
+        <label class="button-value-label">
+            Action Value
+        </label>
 
         <input
             class="button-value"
             type="text"
             value="${escapeHTML(button.action.value)}"
         >
+
+        <small class="button-help"></small>
 
         <div class="field-inline">
 
@@ -314,15 +299,122 @@ function createButton(button, index) {
 
     bindButtonEvents(element, index);
 
+    updateButtonActionUI(element);
+
+    bindButtonEvents(element, index);
+
     return element;
 
 }
 
-/*
-=========================================
-        BUTTON EVENTS
-=========================================
-*/
+function updateButtonActionUI(element){
+
+    const action =
+        element.querySelector(".button-action").value;
+
+    const value =
+        element.querySelector(".button-value");
+
+    const label =
+        element.querySelector(".button-value-label");
+
+    const help =
+        element.querySelector(".button-help");
+
+    const style =
+        element.querySelector(".button-style");
+
+    switch(action){
+
+        case "url":
+
+            label.textContent = "URL";
+
+            value.placeholder =
+                "https://example.com";
+
+            help.textContent =
+                "Opens a website when clicked.";
+
+            style.value = "link";
+
+            style.disabled = true;
+
+        break;
+
+        case "assign":
+
+            label.textContent = "Role ID";
+
+            value.placeholder =
+                "123456789012345678";
+
+            help.textContent =
+                "Gives this role to the user.";
+
+            style.disabled = false;
+
+        break;
+
+        case "remove":
+
+            label.textContent = "Role ID";
+
+            value.placeholder =
+                "123456789012345678";
+
+            help.textContent =
+                "Removes this role from the user.";
+
+            style.disabled = false;
+
+        break;
+
+        case "toggle":
+
+            label.textContent = "Role ID";
+
+            value.placeholder =
+                "123456789012345678";
+
+            help.textContent =
+                "Adds the role if missing, otherwise removes it.";
+
+            style.disabled = false;
+
+        break;
+
+        case "reply":
+
+            label.textContent = "Reply";
+
+            value.placeholder =
+                "Thanks for clicking!";
+
+            help.textContent =
+                "Sends an ephemeral message.";
+
+            style.disabled = false;
+
+        break;
+
+        case "event":
+
+            label.textContent = "Event Name";
+
+            value.placeholder =
+                "verify_button";
+
+            help.textContent =
+                "Triggers a custom event handled by plugins.";
+
+            style.disabled = false;
+
+        break;
+
+    }
+
+}
 
 function bindButtonEvents(element, index) {
 
@@ -337,6 +429,7 @@ function bindButtonEvents(element, index) {
 
     const actionTypeInput =
         element.querySelector(".button-action");
+        updateButtonActionUI(element);
 
     const actionValueInput =
         element.querySelector(".button-value");
@@ -348,6 +441,16 @@ function bindButtonEvents(element, index) {
         element.querySelector(".remove");
 
     const update = () => {
+
+        if(
+
+            actionTypeInput.value === "url"
+
+        ){
+
+            styleInput.value = "link";
+
+        }
 
         updateButton(index, {
 
@@ -379,7 +482,10 @@ function bindButtonEvents(element, index) {
 
     styleInput.addEventListener("change", update);
 
-    actionTypeInput.addEventListener("change", update);
+    actionTypeInput.addEventListener("change", () => {
+        updateButtonActionUI(element);
+        update();
+    });
 
     actionValueInput.addEventListener("input", update);
 
@@ -392,12 +498,6 @@ function bindButtonEvents(element, index) {
     });
 
 }
-
-/*
-=========================================
-            DEBUG
-=========================================
-*/
 
 window.renderComponents = renderComponents;
 window.renderFields = renderFields;

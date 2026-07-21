@@ -1,17 +1,6 @@
-/*
-=========================================
-        Pancake Embed Editor
-                API
-=========================================
-*/
+// api.js
 
 const API_BASE = "https://pancake-embed-api.onrender.com/api/v1/embed";
-
-/*
-=========================================
-        AUTH TOKEN
-=========================================
-*/
 
 function getToken() {
 
@@ -20,12 +9,6 @@ function getToken() {
         : null;
 
 }
-
-/*
-=========================================
-        API REQUEST
-=========================================
-*/
 
 async function apiRequest(endpoint, options = {}) {
 
@@ -66,12 +49,6 @@ async function apiRequest(endpoint, options = {}) {
     return await parseResponse(response);
 
 }
-
-/*
-=========================================
-        GENERATE EMBED
-=========================================
-*/
 
 function prepareEmbedPayload(){
 
@@ -194,12 +171,6 @@ async function generateEmbedCode() {
 
 }
 
-/*
-=========================================
-            GET EMBED
-=========================================
-*/
-
 async function fetchEmbed(code) {
 
     return await apiRequest(
@@ -216,11 +187,6 @@ async function fetchEmbed(code) {
 
 }
 
-/*
-=========================================
-        DELETE EMBED
-=========================================
-*/
 
 async function deleteEmbed(code) {
 
@@ -238,11 +204,6 @@ async function deleteEmbed(code) {
 
 }
 
-/*
-=========================================
-        RESPONSE PARSER
-=========================================
-*/
 
 async function parseResponse(response) {
 
@@ -281,18 +242,6 @@ async function parseResponse(response) {
     return data;
 
 }
-
-/*
-=========================================
-        GENERATED CODE
-=========================================
-*/
-
-/*
-=========================================
-            MODAL
-=========================================
-*/
 
 function openModal({
 

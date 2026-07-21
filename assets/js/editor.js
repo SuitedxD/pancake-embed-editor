@@ -1,15 +1,4 @@
-/*
-=========================================
-        Pancake Embed Editor
-              Editor
-=========================================
-*/
-
-/*
-=========================================
-            INITIALIZE
-=========================================
-*/
+// editor.js
 
 function initializeEditor() {
 
@@ -21,12 +10,6 @@ function initializeEditor() {
     bindActions();
 
 }
-
-/*
-=========================================
-            HELPERS
-=========================================
-*/
 
 function bindInput(id, setter) {
 
@@ -42,23 +25,11 @@ function bindInput(id, setter) {
 
 }
 
-/*
-=========================================
-            MESSAGE
-=========================================
-*/
-
 function bindMessage() {
 
     bindInput("content", setContent);
 
 }
-
-/*
-=========================================
-            EMBED
-=========================================
-*/
 
 function bindEmbed() {
 
@@ -78,12 +49,6 @@ function bindEmbed() {
 
 }
 
-/*
-=========================================
-            AUTHOR
-=========================================
-*/
-
 function bindAuthor() {
 
     bindInput("author-name", setAuthorName);
@@ -91,12 +56,6 @@ function bindAuthor() {
     bindInput("author-icon", setAuthorIcon);
 
 }
-
-/*
-=========================================
-            FOOTER
-=========================================
-*/
 
 function bindFooter() {
 
@@ -106,12 +65,6 @@ function bindFooter() {
 
 }
 
-/*
-=========================================
-            IMAGES
-=========================================
-*/
-
 function bindImages() {
 
     bindInput("thumbnail", setThumbnail);
@@ -119,12 +72,6 @@ function bindImages() {
     bindInput("image", setImage);
 
 }
-
-/*
-=========================================
-        ACTION BUTTONS
-=========================================
-*/
 
 function bindActions() {
 

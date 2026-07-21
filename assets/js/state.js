@@ -1,9 +1,4 @@
-/*
-=========================================
-        Pancake Embed Editor
-            State Manager
-=========================================
-*/
+// state.js
 
 const DEFAULT_STATE = {
     content: "",
@@ -40,12 +35,6 @@ const DEFAULT_STATE = {
 
 let state = clone(DEFAULT_STATE);
 
-/*
-=========================================
-            HELPERS
-=========================================
-*/
-
 function clone(value){
 
     if(window.structuredClone){
@@ -66,12 +55,6 @@ function getEmbed() {
     return state.embeds[0];
 }
 
-/*
-=========================================
-            STATE
-=========================================
-*/
-
 function getState() {
     return clone(state);
 }
@@ -83,12 +66,6 @@ function setState(newState) {
 function resetState() {
     state = clone(DEFAULT_STATE);
 }
-
-/*
-=========================================
-        SIMPLE SETTERS
-=========================================
-*/
 
 function setContent(value) {
     state.content = value;
@@ -130,12 +107,6 @@ function setImage(value) {
     getEmbed().image.url = value;
 }
 
-/*
-=========================================
-            FIELDS
-=========================================
-*/
-
 function addField() {
 
     getEmbed().fields.push({
@@ -165,12 +136,6 @@ function removeField(index) {
     getEmbed().fields.splice(index, 1);
 
 }
-
-/*
-=========================================
-            BUTTONS
-=========================================
-*/
 
 function addButton() {
 
@@ -210,12 +175,6 @@ function removeButton(index) {
     getEmbed().buttons.splice(index, 1);
 
 }
-
-/*
-=========================================
-            DEBUG
-=========================================
-*/
 
 window.getState = getState;
 window.getEmbed = getEmbed;

@@ -1,19 +1,8 @@
-/*
-=========================================
-        Pancake Embed Editor
-            File Manager
-=========================================
-*/
+// fileManager.js
 
 const FILE_EXTENSION = ".pancakembed";
 const FILE_VERSION = 1;
 const APPLICATION_NAME = "Pancake Embed Editor";
-
-/*
-=========================================
-            INITIALIZE
-=========================================
-*/
 
 function initializeFileManager() {
 
@@ -49,12 +38,6 @@ function initializeFileManager() {
     });
 
 }
-
-/*
-=========================================
-            EXPORT
-=========================================
-*/
 
 function exportProject() {
 
@@ -112,12 +95,6 @@ function exportProject() {
 
 }
 
-/*
-=========================================
-            IMPORT
-=========================================
-*/
-
 function importProject(file) {
 
     const reader = new FileReader();
@@ -155,12 +132,6 @@ function importProject(file) {
     reader.readAsText(file);
 
 }
-
-/*
-=========================================
-            VALIDATION
-=========================================
-*/
 
 function validateProject(project) {
 
@@ -212,12 +183,6 @@ function validateProject(project) {
 
 }
 
-/*
-=========================================
-        FILE NAME
-=========================================
-*/
-
 function sanitizeFilename(name) {
 
     return name
@@ -231,12 +196,6 @@ function sanitizeFilename(name) {
         .substring(0, 80);
 
 }
-
-/*
-=========================================
-            DEBUG
-=========================================
-*/
 
 window.initializeFileManager = initializeFileManager;
 window.exportProject = exportProject;

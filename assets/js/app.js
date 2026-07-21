@@ -1,11 +1,9 @@
+// app.js
+
 const API_URL = "https://pancake-embed-api.onrender.com";
 const TOKEN_KEY = "pancake_token";
 
 document.addEventListener("DOMContentLoaded", async () => {
-
-    console.log("=================================");
-    console.log("     Pancake Embed Editor");
-    console.log("=================================");
 
     registerEvents();
 
