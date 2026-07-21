@@ -236,7 +236,6 @@ function createButton(button, index) {
             <option value="secondary">Secondary</option>
             <option value="success">Success</option>
             <option value="danger">Danger</option>
-            <option value="link">Link</option>
 
         </select>
 
@@ -392,7 +391,7 @@ function updateButtonActionUI(element){
                 "Thanks for clicking!";
 
             help.textContent =
-                "Sends an ephemeral message.";
+                "Sends an ephemeral message to the user.";
 
             style.disabled = false;
 
@@ -406,7 +405,7 @@ function updateButtonActionUI(element){
                 "verify_button";
 
             help.textContent =
-                "Triggers a custom event handled by plugins.";
+                "Triggers a custom event from a plugin that requires a specific custom ID.";
 
             style.disabled = false;
 
