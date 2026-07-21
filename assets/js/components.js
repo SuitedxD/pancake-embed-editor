@@ -237,6 +237,7 @@ function createButton(button, index) {
             <option value="success">Success</option>
             <option value="danger">Danger</option>
             <option value="link">Link</option>
+
         </select>
 
         <label>Action</label>
@@ -362,7 +363,7 @@ function updateButtonActionUI(element){
                 "Gives this role to the user.";
 
             if (style.value === "link") {
-                style.value = "secondary";
+                style.value = "primary";
             }
 
             linkOption.hidden = true;
@@ -383,7 +384,7 @@ function updateButtonActionUI(element){
                 "Removes this role from the user.";
 
             if (style.value === "link") {
-                style.value = "secondary";
+                style.value = "primary";
             }
 
             linkOption.hidden = true;
@@ -404,7 +405,7 @@ function updateButtonActionUI(element){
                 "Adds the role if missing, otherwise removes it.";
 
             if (style.value === "link") {
-                style.value = "secondary";
+                style.value = "primary";
             }
 
             linkOption.hidden = true;
@@ -425,7 +426,7 @@ function updateButtonActionUI(element){
                 "Sends an ephemeral message to the user.";
 
             if (style.value === "link") {
-                style.value = "secondary";
+                style.value = "primary";
             }
 
             linkOption.hidden = true;
@@ -446,7 +447,7 @@ function updateButtonActionUI(element){
                 "Triggers a custom event from a plugin that requires a specific custom ID.";
 
             if (style.value === "link") {
-                style.value = "secondary";
+                style.value = "primary";
             }
 
             linkOption.hidden = true;
